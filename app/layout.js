@@ -1,14 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Host_Grotesk } from "next/font/google";
+import Provider from "./provider";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const host_GroteskSans = Host_Grotesk({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-host-grotesk-sans",
+  display: "swap",
 });
 
 export const metadata = {
@@ -20,9 +17,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={host_GroteskSans.className}
       >
-        {children}
+        <Provider>
+         {children}
+        </Provider>
+        
       </body>
     </html>
   );
